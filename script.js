@@ -52,7 +52,7 @@ function openFaq(event) {
   img_item.setAttribute(
     'src',
     item.classList.contains('aberto')
-      ? '../imagens/icones/decorativos/arrow2.svg'
-      : '../imagens/icones/decorativos/arrow1.svg'
+      ? './imagens/icones/decorativos/arrow2.svg'
+      : './imagens/icones/decorativos/arrow1.svg'
   );
 }
