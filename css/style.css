@@ -7,6 +7,9 @@
   --s02: 1rem; --s03: 1.125rem; --s04: 1.25rem; --s05: 1.5rem;
   --s06: 1.75rem; --s07: 2rem; --s08: 2.5rem; --s09: 3rem;
   --s10: 3.75rem; --s11: 4.5rem; --s12: 7.5rem;
+
+  /* TEMA */
+  color-scheme: light;
 }
 
 /* RESET BÁSICo */
@@ -20,14 +23,15 @@ html {
   -webkit-font-smoothing: antialiased;
   background-color: var(--w);
   overflow-x: hidden;
+  overscroll-behavior: none;
 }
 body { color: var(--c13); }
 img { display: block; max-width: 100%; }
-a, a:visited, a:active, a:focus {
+li { list-style: none; }
+a, a:visited, a:active, a:focus, button {
   color: inherit;
   text-decoration: none;
 }
-li { list-style: none; }
 
 /* TIPOGRAFIA */
 h1, h2 {
@@ -83,10 +87,8 @@ a:hover, .btn-attention:hover { opacity: .8; }
 /* UTILITÁRIOS */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
-
 .w { color: var(--w); }
 .c10 { color: var(--c10); }
-
 .bg-red { background-color: var(--v3); }
 .bg-dark { background-color: var(--c13); }
 
@@ -100,14 +102,8 @@ a:hover, .btn-attention:hover { opacity: .8; }
   border-radius: 12px;
   transition: opacity .4s ease;
 }
-.btn-w {
-  background-color: var(--w);
-  color: var(--c13);
-}
-.btn-r {
-  background-color: var(--v3);
-  color: var(--w);
-}
+.btn-w { background-color: var(--w); }
+.btn-r { background-color: var(--v3); }
 .btn-t {
   background: transparent;
   color: var(--w);
@@ -137,7 +133,6 @@ a:hover, .btn-attention:hover { opacity: .8; }
   align-self: center;
 }
 .arrow { rotate: 90deg; }
-
 .btn-t::after {
   content: "";
   width: 24px;
@@ -164,13 +159,11 @@ a:hover, .btn-attention:hover { opacity: .8; }
 #introducao {
   background: url("../imagens/imagens/Carne-uai-sougue.jpg") no-repeat center / cover;
   padding-top: 150px;
-}
-#introducao .sub-container {
   color: var(--w);
-  padding-bottom: 390px;
 }
+#introducao .sub-container { padding-bottom: 390px; }
 #introducao p, #sobreApp p { margin-bottom: var(--s07); } 
-#introducao a.btn-w { color: var(--c13); }
+#introducao a.btn-w, #ctaFinal a.btn-w, #porqueUsar h3 { color: var(--c13); }
 
 /* SEÇÃO O QUE É O APP */
 #sobreApp a { margin-top: var(--s02); }
@@ -193,7 +186,6 @@ a:hover, .btn-attention:hover { opacity: .8; }
 #comoFunciona h3 { margin-bottom: var(--s07); }
 
 /* POR QUE USAR */
-#porqueUsar h3 { color: var(--c13); }
 .benefits-list {
   display: grid;
   gap: var(--s02);
@@ -211,6 +203,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
 /* CTA FINAL */
 #ctaFinal p, #porqueUsar .mockup { margin-top: var(--s02); }
 #ctaFinal .btns-container { margin-top: var(--s07); }
+#ctaFinal .sub-container { padding: var(--s12) 0; }
 .tag {
   display: inline-block;
   justify-self: center;
@@ -266,4 +259,40 @@ a:hover, .btn-attention:hover { opacity: .8; }
   grid-template-columns: 1fr auto;
   gap: 40px;
   align-items: center;
+}
+#footer .sub-container { padding: var(--s04) 0; }
+
+/* POP-UP */
+.pop-up {
+  border: none;
+  padding: 0;
+  background: transparent;
+  margin: auto;
+}
+.pop-up::backdrop { background-color: rgba(0, 0, 0, 0.6); }
+.pop-up.ativo { opacity: 1; }
+.pop-up a {
+  color: var(--w);
+  justify-self: center;
+}
+.pop-up button:focus { outline: none; }
+.pop-up-close:first-child {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: url("../imagens/icones/decorativos/fechar.svg") no-repeat center / contain;
+  border: none;
+  cursor: pointer;
+}
+.pop-up-container {
+  position: relative;
+  display: grid;
+  gap: var(--s04);
+  padding: var(--s07);
+  background-color: var(--w);
+  border-radius: 12px;
+  width: min(90vw, 420px);
+  text-align: center;
 }

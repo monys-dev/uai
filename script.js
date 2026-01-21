@@ -1,20 +1,23 @@
 const goToSections = document.querySelectorAll('a[href^="#"]');
-const faqItens = document.querySelectorAll('.faq-item');
+const faqItems = document.querySelectorAll('.faq-item');
 const sections = document.querySelectorAll('section .sub-container');
+const popUp = document.querySelector('#popup-exit');
+const closeBtn_popUp = document.querySelectorAll('.pop-up-close');
+let popUpOpen = false;
 
 if(goToSections.length) {
     goToSections.forEach((item) => {
-        item.addEventListener('click', scrollSuave)
+        item.addEventListener('click', smoothScroll)
     })
 }
 
-if(faqItens.length) {
-    faqItens.forEach((item) => {
+if(faqItems.length) {
+    faqItems.forEach((item) => {
         item.addEventListener('click', openFaq)
     })
 }
 
-if(sections.length){
+if(sections.length) {
 
     const windowMetade = window.innerHeight * 0.6;
 
@@ -33,7 +36,29 @@ if(sections.length){
     window.addEventListener('scroll', animaScroll);
 }
 
-function scrollSuave(event) {
+if(popUp) {
+
+    if(closeBtn_popUp.length) {
+        closeBtn_popUp.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                popUp.close();
+            });
+        });
+    }
+
+    document.addEventListener('mousemove', handleMouseMove)
+}
+
+function handleMouseMove(event) {
+
+    if(!popUpOpen && event.clientY < 80) {
+            popUpOpen = true;
+            popUp.showModal();
+            document.removeEventListener('mousemove', handleMouseMove)
+    }
+}
+
+function smoothScroll(event) {
     event.preventDefault();
     const href = event.currentTarget.getAttribute('href');
     const sub_container = document.querySelector(href);
