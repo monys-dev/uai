@@ -18,12 +18,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+html, body { overflow-x: hidden ; }
 html {
   font-family: Nunito, sans-serif;
   -webkit-font-smoothing: antialiased;
-  background-color: var(--w);
-  overflow-x: hidden;
-  overscroll-behavior: none;
 }
 body { color: var(--c13); }
 img { display: block; max-width: 100%; }
@@ -259,6 +257,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
   grid-template-columns: 1fr auto;
   gap: 40px;
   align-items: center;
+  justify-self: center;
 }
 #footer .sub-container { padding: var(--s04) 0; }
 
@@ -295,4 +294,48 @@ a:hover, .btn-attention:hover { opacity: .8; }
   border-radius: 12px;
   width: min(90vw, 420px);
   text-align: center;
+}
+
+@media (max-width: 390px) {
+  .sub-container { max-width: 350px; }
+  .btns-container { gap: var(--s04); }
+}
+
+@media (max-width: 350px) {
+  .sub-container { max-width: 300px; }
+  .btns-container { gap: var(--s02); }
+  h1, h2 {
+    font-size: var(--s07);
+    line-height: var(--s08);
+  }
+  p, a {
+    font-size: var(--s02);
+    line-height: var(--s04);
+  }
+  h3 {
+    font-size: var(--s04);
+    line-height: var(--s05);
+  }
+  #comoFunciona h3 { margin-bottom: 42px; }
+  #comoFunciona .passos {
+    gap: var(--s02);
+    justify-content: start;
+  }
+  .benefits-list, .benefit-item { padding: .5rem; }
+  .benefit-item { height: 100px; align-items: center; }
+  .btn-r, .btn-t {
+    gap: var(--s02);
+    padding: 1rem .5rem;
+  }
+  .btn-w {
+    gap: 8px;
+    padding: 1.25rem .75rem;
+  }
+  .store-icon, .arrow, .faq-arrow {
+    width: 20px;
+    height: 20px;
+  }
+  .btn-t::after { display: none; }
+  .btn-attention { gap: 16px; }
+  .faq-item { width: 288px; }
 }
