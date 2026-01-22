@@ -63,11 +63,10 @@ a:hover, .btn-attention:hover { opacity: .8; }
 .container { margin: 0 auto; }
 .sub-container {
   display: grid;
-  max-width: 380px;
+  max-width: 370px;
   margin: 0 auto;
   padding: var(--s10) 0;
   gap: var(--s02) 0;
-  justify-content: center;
   opacity: 0;
   transform: translateX(40px);
   transition: opacity 1s ease, transform 1s ease;
@@ -164,6 +163,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
 #introducao a.btn-w, #ctaFinal a.btn-w, #porqueUsar h3 { color: var(--c13); }
 
 /* SEÇÃO O QUE É O APP */
+#sobreApp .sub-container { justify-items: center; }
 #sobreApp a { margin-top: var(--s02); }
 #sobreApp a.btn-r { color: var(--w); }
 
@@ -177,7 +177,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
 #comoFunciona, #porqueUsar, #ctaFinal { color: var(--w); }
 #comoFunciona .passos {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   gap: var(--s07);
   margin-top: var(--s07);
 }
@@ -220,7 +220,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
   margin-top: var(--s02);
   border-radius: 12px;
   border: 2px solid var(--c03);
-  width: 360px;
+  width: 370px;
   transition: border .4s ease, background-color 1s ease;
 }
 .faq-item:hover { cursor: pointer; }
@@ -257,7 +257,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
   grid-template-columns: 1fr auto;
   gap: 40px;
   align-items: center;
-  justify-self: center;
+  justify-self: space-between;
 }
 #footer .sub-container { padding: var(--s04) 0; }
 
@@ -299,6 +299,7 @@ a:hover, .btn-attention:hover { opacity: .8; }
 @media (max-width: 390px) {
   .sub-container { max-width: 350px; }
   .btns-container { gap: var(--s04); }
+  .faq-item { width: 350px; }
 }
 
 @media (max-width: 350px) {
@@ -337,5 +338,5 @@ a:hover, .btn-attention:hover { opacity: .8; }
   }
   .btn-t::after { display: none; }
   .btn-attention { gap: 16px; }
-  .faq-item { width: 288px; }
+  .faq-item { width: 300px; }
 }
